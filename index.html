@@ -8,7 +8,7 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: url('https://picsum.photos/1080/1920?blur=5') no-repeat center center fixed; /* Blurred foggy landscape */
+      background: url('https://picsum.photos/1080/1920?blur=5') no-repeat center center fixed;
       background-size: cover;
       color: #333;
       display: flex;
@@ -27,7 +27,7 @@
       text-align: left;
       margin-bottom: 20px;
     }
-    .header-logo img {
+    .header-logo svg {
       width: 120px;
       height: auto;
     }
@@ -114,6 +114,7 @@
       font-size: 10px;
       color: #666;
       margin-top: 20px;
+      padding-bottom: 20px;
     }
     .footer a {
       color: #666;
@@ -141,7 +142,12 @@
 <body>
   <div class="container">
     <div class="header-logo">
-      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAgNTAiPjxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik0xMiAxMGMtNi42IDAtMTIgNS40LTEyIDEycy41NCAyOCAxMiAyOGwxNi0xNmExMiAxMiAwIDAgMS0xMi0xMnpNMTIgMjB2MjBMMCA0MGMtNi42IDAtMTItNS40LTEyLTEyczUuNC0xMiAxMi0xMnoiLz48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNNDggMjBjLTYuNiAwLTEyIDUuNC0xMiAxMnM1LjQgMTIgMTIgMTJoMTZ2LTE2YTEyIDEyIDAgMCAwLTEyLTEyek00OCAyMHYyMEw2MCA0MGM2LjYgMCAxMi01LjQgMTItMTJzLTUuNC0xMi0xMi0xMnoiLz48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNNDggNDB2MjBsMTYtMTZhMTIgMTIgMCAwIDEtMTItMTJoLTE2YTEyIDEyIDAgMCAwIDEyIDEyek00OCAyMHYyMEw2MCA0MGM2LjYgMCAxMi01LjQgMTItMTJzLTUuNC0xMi0xMi0xMnoiLz48L3N2Zz4=" alt="Chase Logo">
+      <svg width="120" height="56" viewBox="0 0 120 56" xmlns="http://www.w3.org/2000/svg">
+        <g fill="white">
+          <path d="M14 0 L28 0 L42 14 L42 42 L28 56 L14 56 L0 42 L0 14 Z" transform="translate(0,0)"/>
+          <text x="20" y="40" font-family="Arial" font-weight="bold" font-size="32" fill="white">CHASE</text>
+        </g>
+      </svg>
     </div>
     <div class="login-box">
       <div id="login-step">
@@ -258,4 +264,3 @@
   </script>
 </body>
 </html>
-
